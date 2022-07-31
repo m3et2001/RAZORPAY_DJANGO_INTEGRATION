@@ -1,0 +1,17 @@
+.login-card{
+    margin: auto;
+    padding: 138px 0px 0px 0px;
+    width: 365px;
+    text-align: center;
+}
+.verification-card{
+    margin: auto;
+    padding: 138px 0px 0px 0px;
+    width: 365px;
+    text-align: center;
+    display: none;
+}
+.title{
+    margin: 28px;
+    font-size: calc(2rem + .6vw);
+}

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% load static %}
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <link rel="stylesheet" href="{% static 'payment/css/payment_page.css' %}">
+  <script src="{% static 'payment/js/payment_page.js' %}"></script>
+
+  <title>payment</title>
+</head>
+
+<body>
+  <div class="card">
+    <h1 class="title">pay </h1>
+    <div class="add-amount">
+      <h4 >Add amount</h4>
+      <input type="number" id="amount" name="amount">
+    </div>
+    <div class="btn_container">
+      <div class="btn_container">
+        <!-- Payment Button -->
+        <button class="btn" onclick="pay()" id="pay-btn">pay</button>
+      </div>
+    </div>
+  </body>
+
+  <!-- <form method="POST">
+    {% csrf_token %}
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script >
+      function pay() {
+
+var amount=document.getElementById ("amount").value
+console.log(amount);
+if (amount !=  0)
+
+  $.ajax({
+    url: "/user-payment",
+    data: {
+      event: "pay",
+      amount: amount,
+    },
+    
+    success: function (data) {
+      // $("#idImg").html(data);
+      console.log(data)
+
+      var options = {
+     
+        key: data["razorpay_merchant_key"],
+        amount: data['razorpay_amount'],
+        currency: data["currency"],
+        name: "Demo Razorpay",
+        order_id: data["razorpay_order_id"],
+        callback_url: data["callback_url"],
+        // handler: function (response){
+        //     payment_detail(response)
+        //     alert(" Your Payment ID: "+response.razorpay_payment_id);
+        //     alert(" Your Order ID: "+response.razorpay_order_id);
+        //     alert(" Your Signature ID: "+response.razorpay_signature)
+        // },
+      };
+       
+      var rzp1 = new Razorpay(options);
+
+      rzp1.on('payment.su', function (response){
+        alert(response.error.code);
+        alert(response.error.description);
+        alert(response.error.source);
+        alert(response.error.step);
+        alert(response.error.reason);
+        alert(response.error.metadata.order_id);
+        alert(response.error.metadata.payment_id);
+});
+      rzp1.on('payment.failed', function (response){
+        alert(response.error.code);
+        alert(response.error.description);
+        alert(response.error.source);
+        alert(response.error.step);
+        alert(response.error.reason);
+        alert(response.error.metadata.order_id);
+        alert(response.error.metadata.payment_id);
+});
+      rzp1.open();
+      e.preventDefault();
+    },
+  });
+  else{
+    alert('please add coin')
+  }
+}
+
+function payment_detail(response){
+  alert('ok thats fine')
+  alert(response)
+
+$.ajax({
+  url: "/payment-details",
+  data: {
+    response: response,
+    
+  },
+  
+  success: function (data) {
+    alert('did it')
+  }
+
+});
+}
+
+    </script>
+
+  
+
+
+  </form>
+   -->
+  <!-- Razorpay's Javascript code. -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<!-- </html>C:\Users\Admin\prectice_code\ANGULAR_DJANGO_RESTAPI\BACKEND\payment_getaway\static\payment\payment_page.js -->
